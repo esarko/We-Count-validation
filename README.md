@@ -3,11 +3,17 @@
 This project uses Google Cloud Platform's (GCP) Cloud Functions and Cloud Client Libraries to create an automated validation program written in Python. The specific use case for this project is validating electronic medical record (EMR) data from project partners. This project is useful if you need to develop a custom validation program that is run using GCP Cloud Functions. The validation ensures that data is complete, in the correct format, and protected health information (PHI) is not transferred. Files that fail validation are deleted. 
 
 The Python packages used in this project are:
+
 csv
+
 json
+
 gcsfs: https://gcsfs.readthedocs.io/en/latest/index.html
+
 cerberus: https://docs.python-cerberus.org/en/stable/
+
 pubsub_v1 (Cloud client library)
+
 storage (Cloud client library)
 
 The GCP resources used in this project are:
