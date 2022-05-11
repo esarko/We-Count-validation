@@ -1,0 +1,4 @@
+gcsfs==2022.3.0
+cerberus==1.3.4
+google-cloud-pubsub==0.34.0
+google-cloud-storage==1.17.0
