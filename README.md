@@ -17,6 +17,6 @@ The GCP resources used in this project are:
 
 The Cloud Function is triggered by a file being uploaded to a specified Storage bucket (Tutorial on how to deploy an event-driven Cloud Function: https://cloud.google.com/functions/docs/tutorials/storage). The file must be CSV. When the CSV file is uploaded to the bucket, a JSON copy of the file is created and checked by the validation program. If the file passess validation, a success message is published to Pub/Sub and the JSON file is deleted, leaving the validated CSV file in the bucket. If the file fails validation, a failure message is published to Pub/Sub, an error report is generated and uploaded to a specified Storage bucket, and the CSV and JSON files are deleted from the bucket. 
 
-The runtime used in Cloud Functions is Python 3.9. The repo includes a template script and an example script (using demographic EMR data); both scripts include the main.py and requirements.txt files necessary for the Function. 
+The runtime used in Cloud Functions is Python 3.9. The repo includes a template script, an example script (using demographic EMR data), and the requirements.txt files necessary for the Function. 
 
 If you have any questions, you can reach me at esarkodie@whitman-walker.org or ep.sarko@gmail.com
