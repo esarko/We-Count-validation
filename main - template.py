@@ -24,13 +24,13 @@ STORAGE_CLIENT = storage.Client()
 PROJECT_ID = 'we-count-emr'
 TOPIC_SUCCESS_ID = 'validation_success_topic'
 TOPIC_FAILURE_ID = 'validation_failure_topic'
-[SCHEMA] = [Schema]
+[SCHEMA] = [Schema] ## CODE FOR SCHEMA DEFINED HERE
 
 def validation(data, context):
     BUCKET_NAME = data['bucket']
     FILE_NAME = data['name']
-    GCS_CSV_PATH = f'gs://[name of bucket]/{FILE_NAME}'
-    GCS_JSON_PATH = f'gs://[name of bucket]/{FILE_NAME}.json'
+    GCS_CSV_PATH = f'gs://[name of bucket]/{FILE_NAME}' ## CHANGE [name of bucket] TO BUCKET WHERE FILE IS UPLOADED TO
+    GCS_JSON_PATH = f'gs://[name of bucket]/{FILE_NAME}.json' ## CHANGE [name of bucket] TO BUCKET WHERE FILE IS UPLOADED TO
     SUCCESS_TOPIC = PUBLISH_CLIENT.topic_path(PROJECT_ID, TOPIC_SUCCESS_ID)
     FAILURE_TOPIC = PUBLISH_CLIENT.topic_path(PROJECT_ID, TOPIC_FAILURE_ID)
     ERROR_BUCKET = 'validation_error_reports'
@@ -39,7 +39,7 @@ def validation(data, context):
     ## If the file passes validation, publish success message to PubSub.
     ## If the file fails validation, publish failure message to PubSub, upload error report to Storage, and delete data file from Storage. 
     _make_json(GCS_CSV_PATH, GCS_JSON_PATH)
-    if _check_validation([SCHEMA], dataf):
+    if _check_validation([SCHEMA], dataf): ## UPDATE [SCHEMA] WITH SCHEMA VARIABLE DEFINED ABOVE
         _validation_success_topic(SUCCESS_TOPIC, FILE_NAME)
         _remove_json(BUCKET_NAME)
     else:
